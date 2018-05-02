@@ -1,0 +1,19 @@
+title: Casting
+files: true
+pages: false
+fields:
+  title:
+    label: Title
+    type:  text
+  entries:
+    label: Entries
+    type: engineer
+    fields:
+      title:
+        label: Title
+        type: text
+        width: 1/2
+      image:
+        label: Image
+        type: hero
+        width: 1/2
