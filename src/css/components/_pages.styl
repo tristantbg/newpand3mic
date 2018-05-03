@@ -1,0 +1,111 @@
+#back
+	font-size 1.5rem
+	line-height 1
+	position fixed
+	padding $padding
+	top 0
+	right 0
+	z-index 300
+	&::after
+		content '\002190'
+
+#about
+	margin-bottom 1em
+
+#press
+	font-size 1rem
+	line-height 1
+	.title
+		margin-right 3em
+
+#credits
+	margin-top 1em
+	font-size 1rem
+	line-height 1
+	display flex
+	flex-wrap wrap
+	div
+		margin-right 1em
+
+#casting
+	.casting-item
+		.image
+			align()
+			display none
+			width 25vw
+			z-index 10
+		&:hover
+			.image
+				display block
+
+[page-type=model]
+	#container
+		padding 0
+	h1
+		align(vertical)
+		left $padding
+		z-index 5
+	.slider
+		z-index 10
+
+#model-infos
+	align(vertical)
+	position fixed
+	left 70%
+	font-size 1rem
+	line-height 1
+	z-index 100
+	.info-item
+		display flex
+		min-height 1em
+		div:first-child
+			flex 0 0 8rem
+
+#models-list
+	font-size 1rem
+	line-height 1
+	display flex
+	flex-wrap wrap
+	position fixed
+	z-index 300
+	bottom $padding
+	left $padding
+	width 65%
+	a
+		margin-right 1em
+
+[page-type=models]
+	#container
+		padding 0
+	h1
+		align()
+		position fixed
+		width 100%
+		white-space nowrap
+		text-align center
+		pointer-events none
+		z-index 0
+	#left, #right
+		span(1/2)
+		padding 0 9.1%
+		position relative
+		z-index 10
+	.model-item
+		a
+			cursor url('../../images/pointer.png') 16 16, auto
+		.title
+			display none
+	#left
+		margin-top -48.2vh
+		.model-item
+			margin-bottom 11rem
+	#right
+		position fixed
+		top 0
+		left 50%
+		height 100%
+		overflow hidden
+		.content
+			transform translateY(-90%) translateZ(0)
+		.model-item
+			margin-bottom 15rem

@@ -82,9 +82,28 @@
 <div id="main">
 
 	<header>
-		<div id="site-title">
-			<h1><?= $site->title()->html() ?></h1>
-		</div>
+		<?php if ($page->isHomepage()): ?>
+		<h1><?= $site->title()->html() ?></h1>
+		<?php endif ?>
+		<?php
+
+		// main menu items
+		$items = $pages->visible();
+
+		// only show the menu if items are available
+		if($items->count()):
+
+		?>
+		<nav>
+		  <ul>
+		    <?php foreach($items as $item): ?>
+		    	<?php if (!$item->isOpen()): ?>
+		    		<li><a<?php e($item->isOpen(), ' class="active"') ?> href="<?= $item->url() ?>"><?= $item->title()->html() ?></a></li>
+		    	<?php endif ?>
+		    <?php endforeach ?>
+		  </ul>
+		</nav>
+		<?php endif ?>
 	</header>
 
 	<div id="container">

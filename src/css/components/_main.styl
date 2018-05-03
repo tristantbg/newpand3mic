@@ -31,8 +31,17 @@ a, a:hover, a:visited, a:focus
 	text-decoration none
 	cursor pointer
 
+.responsive-image
+	hideselect()
+	position relative
+	overflow hidden
+	img
+		position absolute
+		top 0
+		left 0
+
 .lazy, .plyr
-	transition opacity 300ms ease
+	transition opacity 100ms ease
 	opacity 0
 
 .lazy.lazyloaded, .lazy.flickity-lazyloaded, .plyr.plyr--ready
@@ -43,6 +52,7 @@ a, a:hover, a:visited, a:focus
 
 #container
 	span(1)
+	padding $padding
 
 body.is-loading
 	#page-content

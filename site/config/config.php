@@ -41,11 +41,11 @@ c::set('simplemde.buttons', array(
   "email"
 ));
 //Typo
-c::set('typography', false);
+c::set('typography', true);
 c::set('typography.ordinal.suffix', false);
 c::set('typography.fractions', false);
 c::set('typography.dashes.spacing', false);
-c::set('typography.hyphenation', true);
+c::set('typography.hyphenation', false);
 //c::set('typography.hyphenation.language', 'fr');
 //c::set('typography.hyphenation.minlength', 5);
 c::set('typography.hyphenation.headings', false);

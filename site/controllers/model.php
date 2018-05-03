@@ -3,7 +3,8 @@
 return function ($site, $pages, $page) {
 
 	return array(
-	'images' => $page->medias()->toStructure(),
+		'models' => $site->homePage()->children()->visible(),
+		'images' => $page->medias()->toStructure(),
 	);
 }
 

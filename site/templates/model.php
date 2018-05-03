@@ -2,35 +2,57 @@
 	
 <div class="slider">
 
-<div id="mouse-nav"></div>
+	<?php foreach ($images as $key => $image): ?>
 
-<?php foreach ($images as $key => $image): ?>
+		<?php if($image = $image->toFile()): ?>
 
-	<?php if($image = $image->toFile()): ?>
+		<?php
+			$placeholder = $image->width(50)->dataUri();
+			$src = $image->width(1000)->url();
+			$srcset = $image->width(500)->url() . ' 500w,';
+			for ($i = 1000; $i <= 3000; $i += 1000) $srcset .= $image->width($i)->url() . ' ' . $i . 'w,';
+		?>
 
-	<div class="slide" 
-	<?php if($image->caption()->isNotEmpty()): ?>
-	data-caption="<?= $image->caption()->kt()->escape() ?>"
-	<?php endif ?>
-	data-media="image"
-	>
-		<div class="content image">
-			<img class="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-flickity-lazyload="<?= thumb($image, array('height', 1300))->url() ?>" alt="<?= $title.' - © '.$site->title()->html() ?>" height="100%" width="auto" />
-			<noscript>
-				<img src="<?= thumb($image, array('height', 1300))->url() ?>" alt="<?= $title.' - © '.$site->title()->html() ?>" height="100%" width="auto" />
-			</noscript>
+		<div class="slide">
+			<div class="content image">
+				<img 
+				class="lazy lazyload lazypreload" 
+				src="<?= $placeholder ?>" 
+				data-flickity-lazyload="<?= $image->height(1500)->url() ?>" 
+				data-srcset="<?= $srcset ?>" 
+				alt="<?= $page->title()->html().' - © '.$site->title()->html() ?>" 
+				height="100%" 
+				sizes="auto"
+				optimumx="1.5" 
+				width="auto" />
+				<noscript>
+					<img src="<?= $image->width(1500)->url() ?>" alt="<?= $page->title()->html().' - © '.$site->title()->html() ?>" height="100%" width="auto" />
+				</noscript>
+			</div>
+
 		</div>
 
-	</div>
+		<?php endif ?>
 
-	<?php endif ?>
-
-<?php endforeach ?>
+	<?php endforeach ?>
 
 </div>
 
-<div id="project-description">
-	<?= $page->text()->kt() ?>
+<h1><?= $page->title()->html() ?></h1>
+
+<div id="model-infos">
+	<?php foreach ($page->text()->toStructure() as $key => $info): ?>
+		<div class="info-item">
+			<div><?= $info->title()->html() ?></div>
+			<div><?= $info->text()->kt() ?></div>
+		</div>
+	<?php endforeach ?>
+</div>
+
+<div id="models-list">
+	<?php foreach ($models as $key => $model): ?>
+		<a href="<?= $model->url() ?>"><?= $model->title()->html() ?></a>
+	<?php endforeach ?>
 </div>
 
 <?php snippet('footer') ?>

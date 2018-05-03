@@ -1,19 +1,14 @@
 <?php snippet('header') ?>
 
-<?php foreach ($projects as $key => $project): ?>
+<div id="left"><?php snippet('models') ?></div>
+<div id="right"><?php snippet('models') ?></div>
 
-	<?php if($project->featured()->isNotEmpty()): ?>
+<h1 data-title="<?= $site->title()->escape() ?>"><?= $site->title()->html() ?></h1>
 
-	<?php $featured = $project->featured()->toFile() ?>
-
-		<div class="project-item">
-
-			<?= $project->title()->html() ?>
-			
-		</div>
-
-	<?php endif ?>
-
-<?php endforeach ?>
+<div id="models-list">
+	<?php foreach ($models as $key => $model): ?>
+		<a href="<?= $model->url() ?>"><?= $model->title()->html() ?></a>
+	<?php endforeach ?>
+</div>
 
 <?php snippet('footer') ?>
