@@ -1,16 +1,22 @@
 webfont("THC","THCCondensedRegular")
 
 html
-	font-size 1vmax
+	+above($md + 1)
+		font-size 1vmax
+	+below($md)
+		font-size 2.4vmax
 
 body
 	font-family 'THC', Helvetica Neue, Arial, sans-serif
-	font-size 11rem
 	text-rendering optimizeLegibility
 	font-smoothing()
 	color $secondary
 	line-height 0.85
 	text-transform uppercase
+	+above($md + 1)
+		font-size 11rem
+	+below($md)
+		font-size 3rem
 
 p
 	margin-bottom 1em

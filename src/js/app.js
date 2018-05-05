@@ -44,8 +44,18 @@ const App = {
           model.addEventListener('mouseenter', event => {
             title.innerText = model.getAttribute('data-title');
             title.style.zIndex = 15;
+            title.style.pointerEvents = 'none';
+          });
+          model.addEventListener('touchstart', event => {
+            title.innerText = model.getAttribute('data-title');
+            title.style.zIndex = 15;
+            title.style.pointerEvents = 'none';
           });
           model.addEventListener('mouseleave', event => {
+            title.innerText = title.getAttribute('data-title');
+            title.removeAttribute('style');
+          });
+          model.addEventListener('touchend', event => {
             title.innerText = title.getAttribute('data-title');
             title.removeAttribute('style');
           });
@@ -54,10 +64,21 @@ const App = {
         const left = document.getElementById('left');
         const rightContent = right.querySelector('.content');
         window.addEventListener('mousewheel', event => {
-          const pos = (90-(window.scrollY/left.offsetHeight)*100)*(-1);
+          const pos = (90 - (window.scrollY / left.offsetHeight) * 100) * (-1);
           rightContent.style.transform = 'translateY(' + pos + '%) translateZ(0)';
         });
-        
+      }
+      const casting = document.getElementsByClassName('casting-item');
+      if (casting.length > 0) {
+        for (let i = 0; i < casting.length; i++) {
+          const img = casting[i].querySelector('.image');
+          if (img) {
+            casting[i].addEventListener('mousemove', event => {
+              img.style.top = event.clientY + 'px';
+              img.style.left = event.clientX + 'px';
+            });
+          }
+        }
       }
     },
     linkTargets: () => {
@@ -71,7 +92,6 @@ const App = {
         }
       }
     },
-
     embedKirby: () => {
       var pluginEmbedLoadLazyVideo = function() {
         var e = this.parentNode,
@@ -107,11 +127,17 @@ const App = {
         //     this.next();
         //   }
         // });
-        slider.on('staticClick', function(event, pointer, cellElement, cellIndex) {
-          if (typeof cellIndex == 'number') {
-            slider.selectCell(cellIndex);
-          }
-        });
+        if ((window.innerWidth || document.documentElement.clientWidth) < 1024) {
+          slider.on('staticClick', function(event, pointer, cellElement, cellIndex) {
+            slider.next();
+          });
+        } else {
+          slider.on('staticClick', function(event, pointer, cellElement, cellIndex) {
+            if (typeof cellIndex == 'number') {
+              slider.selectCell(cellIndex);
+            }
+          });
+        }
         // let prevNextButtons = slider.element.querySelectorAll(".flickity-prev-next-button");
         // prevNextButtons.forEach((el) => {
         //   let cursor = document.createElement('div');

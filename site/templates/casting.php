@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-<a id="back" href="<?= $page->parent()->url() ?>"></a>
+<!-- <a id="back" href="<?= $page->parent()->url() ?>"></a> -->
 
 <div id="casting">
 	<?php foreach ($page->entries()->toStructure() as $key => $item): ?>

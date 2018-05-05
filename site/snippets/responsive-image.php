@@ -4,7 +4,7 @@
 		<?php
 		if(!isset($maxWidth)) $maxWidth = 3000;
 		if (isset($ratio)) {
-			$placeholder = $image->crop(50, floor(50/$ratio))->dataUri();
+			$placeholder = $image->crop(50, floor(50/$ratio))->url();
 			$src = $image->crop(1000, floor(1000/$ratio))->url();
 			$srcset = $image->crop(500, floor(500/$ratio))->url() . ' 500w,';
 			for ($i = 1000; $i <= $maxWidth; $i += 1000) $srcset .= $image->crop($i, floor($i/$ratio))->url() . ' ' . $i . 'w,';

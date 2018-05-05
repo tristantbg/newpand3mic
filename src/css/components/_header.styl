@@ -4,9 +4,16 @@ header
 	right $padding
 	font-size 1rem
 	z-index 300
+	+below($md)
+		bottom ($padding/2)
+		right ($padding/2)
 	h1
 		display none
 	nav
+		svg
+			display block
+			height 0.7rem
+			padding-top 0.05rem
 		ul
 			display inline-flex
 			li:not(:last-child)

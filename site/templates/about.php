@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-<a id="back" href="<?= $page->parent()->url() ?>"></a>
+<!-- <a id="back" href="<?= $page->parent()->url() ?>"></a> -->
 
 <?php if ($page->text()->isNotEmpty()): ?>
 	<div id="about">

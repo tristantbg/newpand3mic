@@ -1,14 +1,27 @@
 .slider
 	height 100vh
 	hideselect()
+	+below($md)
+		height calc(100vh - 3.9rem)
 	.slide
 		height 100%
 		margin-right 15rem
 		z-index 10
+		+below($md)
+			width 100%
+			margin 0
 		&:first-child
 			z-index 0
 		.content
 			height 100%
+			+below($md)
+				width 100%
+				img
+					width 100%
+					height 100%
+					object-fit contain
+					object-position top
+					font-family 'object-fit: contain'
 	.flickity-prev-next-button
 		top 0
 		height 100%

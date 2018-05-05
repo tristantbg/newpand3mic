@@ -7,14 +7,14 @@
 		<?php if($image = $image->toFile()): ?>
 
 		<?php
-			$placeholder = $image->width(50)->dataUri();
+			$placeholder = $image->width(50)->url();
 			$src = $image->width(1000)->url();
 			$srcset = $image->width(500)->url() . ' 500w,';
 			for ($i = 1000; $i <= 3000; $i += 1000) $srcset .= $image->width($i)->url() . ' ' . $i . 'w,';
 		?>
 
 		<div class="slide">
-			<div class="content image">
+			<div class="content image <?= $image->contentSize() ?>">
 				<img 
 				class="lazy lazyload lazypreload" 
 				src="<?= $placeholder ?>" 
