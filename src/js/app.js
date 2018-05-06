@@ -11,6 +11,7 @@ const App = {
   header: null,
   siteTitle: null,
   initialize: () => {
+    console.log('DESIGN + CODE = HTTB.EU', 'www.httb.eu');
     App.header = document.querySelector("header");
     App.sizeSet();
     App.interact.init();
@@ -64,6 +65,10 @@ const App = {
         const left = document.getElementById('left');
         const rightContent = right.querySelector('.content');
         window.addEventListener('mousewheel', event => {
+          const pos = (90 - (window.scrollY / left.offsetHeight) * 100) * (-1);
+          rightContent.style.transform = 'translateY(' + pos + '%) translateZ(0)';
+        });
+        window.addEventListener('scroll', event => {
           const pos = (90 - (window.scrollY / left.offsetHeight) * 100) * (-1);
           rightContent.style.transform = 'translateY(' + pos + '%) translateZ(0)';
         });
