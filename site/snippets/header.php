@@ -55,7 +55,7 @@
 	<link rel="shortcut icon" href="<?= url('assets/images/favicon.ico') ?>">
 	<link rel="icon" href="<?= url('assets/images/favicon.ico') ?>" type="image/x-icon">
 
-	<?php 
+	<?php
 	echo css('assets/css/build/build.min.css');
 	echo js('assets/js/build/vendor/modernizr-bundle.js');
 	?>
@@ -98,11 +98,12 @@
 		  <ul>
 		  	<li>
 		  		<a href="<?= $site->url() ?>">
-		  			<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+		  			<!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 							 viewBox="-250 -117 500 298" enable-background="new -250 -117 500 298" xml:space="preserve">
 					<path fill="#FFFFFF" d="M-171-57V2h26v59h26v59h53V61h-26V2h-26v-59H-171z M-250-116v297h26V-56h53v-59L-250-116z M13-56h184v29V2
 								H13L13-56z M13,180L13,180V61h184V32h53V-88h-53v-29H-14v237h-53v59L13,180z"/>
-					</svg>
+					</svg> -->
+          Main board
 		  		</a>
 		  	</li>
 		    <?php foreach($items as $item): ?>
